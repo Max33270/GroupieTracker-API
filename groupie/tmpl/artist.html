@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/groupie/static/artist.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <form action="/" method="post">
+            <button class="home">Home</button> 
+        </form>
+    </div>
+    <div class="head">
+        <img src="{{.Image}}" alt="cover" class="img">
+        <h1 class="title">{{.Name}}</h1>
+    </div>
+    <div class=main>
+        <div class="concerts">
+            {{range .Concerts}}
+            <div class="dateloc">
+                <div class="date">
+                    <p  class="month"> {{ .Date.Month }} </p>
+                    <p  class="day"> {{ .Date.Day }} </p>
+                    <p  class="year"> {{ .Date.Year }} </p>
+                </div>
+                <div class="loc">
+                    <p >{{ .City }} </p>
+                    <p>{{ .Country }} </p>
+                </div>
+            </div>
+            {{end}}
+        </div>
+        <div class="infos">
+            <div class = "members">
+                <h2>Members</h2>
+                {{ range .Members}}
+                {{.}} <br>
+                {{end}}
+            </div>
+           <div class="creationDate">
+               <h2>Creation Date</h2>
+            {{.CreationDate}} 
+           </div>
+           <div class="firstAlbum">
+               <h2>First Album</h2>
+            {{.FirstAlbum}} 
+           </div>
+        </div>
+    </div>
+</body>
+
+</html>
